@@ -2,7 +2,10 @@ import axios from "./index";
 
 class AuthApi {
   static Login = (data) => {
-    return axios.post(`${base}/signin`, {username: data.email, password:data.password});
+    return axios.post(`${base}/signin`, {
+      username: data.email,
+      password: data.password,
+    });
   };
 
   static Register = (data) => {
@@ -10,7 +13,9 @@ class AuthApi {
   };
 
   static Logout = (data) => {
-    return axios.post(`${base}/logout`, data, { headers: { Authorization: `${data.token}` } });
+    return axios.post(`${base}/logout`, data, {
+      headers: { Authorization: `${data.token}` },
+    });
   };
 }
 

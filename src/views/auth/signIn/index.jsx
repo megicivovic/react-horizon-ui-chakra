@@ -111,7 +111,7 @@ function SignIn() {
   };
   const setProfile = async (response) => {
     let user = { ...response.data.user };
-    user.token = response.data.token;
+    user.token = response.data.accessToken;
     user = JSON.stringify(user);
     setUser(user);
     localStorage.setItem("user", user);

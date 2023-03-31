@@ -1,13 +1,14 @@
 import React from "react";
 
 import { Icon } from "@chakra-ui/react";
-import { MdPerson, MdHome, MdLogout, MdPeople } from "react-icons/md";
+import { MdPerson, MdHome, MdLogout, MdPeople, MdKey } from "react-icons/md";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import Customers from "views/admin/customers";
 import Employees from "views/admin/employees";
 import Profile from "views/admin/profile";
+import Unlock from "views/admin/unlock";
 
 // Auth Imports
 // import SignInCentered from "views/auth/signIn";
@@ -42,6 +43,13 @@ const routes = [
     path: "/employees",
     icon: <Icon as={MdPeople} width="20px" height="20px" color="inherit" />,
     component: Employees,
+  },
+  {
+    name: "Unlock",
+    layout: "/admin",
+    path: "/unlock",
+    icon: <Icon as={MdKey} width="20px" height="20px" color="inherit" />,
+    component: Unlock,
   },
   {
     name: "Profile",

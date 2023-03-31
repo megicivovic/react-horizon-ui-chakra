@@ -1,0 +1,18 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100%;
+}
+
+.circle {
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease-out;
+}

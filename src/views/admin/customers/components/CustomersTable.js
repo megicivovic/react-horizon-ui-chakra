@@ -9,6 +9,7 @@ import {
   Tr,
   useColorModeValue,
   Image,
+  Button,
 } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import {
@@ -57,9 +58,9 @@ export default function CustomersTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Consumers Table
+          Customers Table
         </Text>
-        <Menu />
+        <Button color="green">➕</Button>
       </Flex>
       <Table>
         <Thead>
@@ -116,6 +117,8 @@ export default function CustomersTable(props) {
                         {cell.value}
                       </Text>
                     );
+                  } else if (cell.column.Header === "DELETE") {
+                    data = <Button color="red">X</Button>;
                   }
                   return (
                     <Td

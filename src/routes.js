@@ -1,26 +1,18 @@
 import React from "react";
 
 import { Icon } from "@chakra-ui/react";
-import {
-  MdPerson,
-  MdHome,
-  MdLogout,
-  MdPeople,
-  MdPeopleAlt,
-  MdPeopleOutline,
-} from "react-icons/md";
+import { MdPerson, MdHome, MdLogout, MdPeople } from "react-icons/md";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import Customers from "views/admin/customers";
-import Employees from "views/admin/customers";
+import Employees from "views/admin/employees";
 import Profile from "views/admin/profile";
 
 // Auth Imports
 // import SignInCentered from "views/auth/signIn";
 import SignIn from "views/auth/signIn/index.jsx";
-import { FaPeopleCarry } from "react-icons/fa";
-import { IoPeopleCircleSharp, IoPeopleSharp } from "react-icons/io5";
+import { IoPeopleCircleSharp } from "react-icons/io5";
 
 const routes = [
   {

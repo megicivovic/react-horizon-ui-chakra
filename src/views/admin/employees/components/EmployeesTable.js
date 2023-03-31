@@ -21,11 +21,11 @@ import {
 
 // Custom components
 import Card from "components/card/Card";
-export default function CustomersTable(props) {
-  const { columnsData, customers } = props;
+export default function EmployeesTable(props) {
+  const { columnsData, employees } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
-  const data = useMemo(() => customers.data, [customers.data]);
+  const data = useMemo(() => employees.data, [employees.data]);
 
   const tableInstance = useTable(
     { columns, data },
@@ -54,7 +54,7 @@ export default function CustomersTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Customers Table
+          Employees Table
         </Text>
         <Button color="green">➕</Button>
       </Flex>
@@ -89,7 +89,7 @@ export default function CustomersTable(props) {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
                   let data = "";
-                  if (cell.column.Header === "NAME") {
+                  if (cell.column.Header === "USERNAME") {
                     data = (
                       <Flex align="center">
                         <Text color={textColor} fontSize="sm" fontWeight="700">
@@ -97,24 +97,20 @@ export default function CustomersTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "LOGO") {
+                  } else if (cell.column.Header === "EMAIL") {
                     data = (
                       <Flex align="center">
-                        <Image
-                          src={`${cell.value}`}
-                          width="100px"
-                          height="70px"
-                        />
+                        <Text color={textColor} fontSize="sm" fontWeight="700">
+                          {cell.value}
+                        </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "EMAIL") {
+                  } else if (cell.column.Header === "COMPANY") {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "DELETE") {
-                    data = <Button color="red">X</Button>;
                   }
                   return (
                     <Td

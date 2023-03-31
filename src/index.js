@@ -15,16 +15,16 @@ user = JSON.parse(user);
 ReactDOM.render(
   <ChakraProvider theme={theme}>
     <AuthProvider userData={user}>
-    <React.StrictMode>
-      <HashRouter>
-        <Switch>
-          <Route path={`/auth`} component={AuthLayout} />
-          <ProtectedRoute path={`/admin`} component={AdminLayout} />
-          <ProtectedRoute path={`/rtl`} component={RTLLayout} />
-          <Redirect from='/' to='/admin/dashboards' />
-        </Switch>
-      </HashRouter>
-    </React.StrictMode>
+      <React.StrictMode>
+        <HashRouter>
+          <Switch>
+            <Route path={`/auth`} component={AuthLayout} />
+            <ProtectedRoute path={`/admin`} component={AdminLayout} />
+            <ProtectedRoute path={`/rtl`} component={RTLLayout} />
+            <Redirect from="/" to="/admin/dashboards" />
+          </Switch>
+        </HashRouter>
+      </React.StrictMode>
     </AuthProvider>
   </ChakraProvider>,
   document.getElementById("root")

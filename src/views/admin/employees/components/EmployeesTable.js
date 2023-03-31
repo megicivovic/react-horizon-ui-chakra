@@ -19,13 +19,25 @@ import {
   useTable,
 } from "react-table";
 
+import EmployeeApi from "../../../../api/employee";
 // Custom components
 import Card from "components/card/Card";
+import { useAuth } from "auth-context/auth.context";
 export default function EmployeesTable(props) {
   const { columnsData, employees } = props;
+  let { user } = useAuth();
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => employees.data, [employees.data]);
+
+  const deleteEmployee = async (id) => {
+    try {
+      EmployeeApi.DeleteEmployee(id, user);
+      employees = employees.filter((employee) => employee.id !== id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const tableInstance = useTable(
     { columns, data },
@@ -122,7 +134,14 @@ export default function EmployeesTable(props) {
                       </Flex>
                     );
                   } else if (cell.column.Header === "DELETE") {
-                    data = <Button color="red">X</Button>;
+                    data = (
+                      <Button
+                        color="red"
+                        onClick={() => deleteEmployee(cell.value)}
+                      >
+                        X
+                      </Button>
+                    );
                   }
                   return (
                     <Td

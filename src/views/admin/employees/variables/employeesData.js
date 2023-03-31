@@ -17,6 +17,6 @@ export const columnsDataColumns = [
   },
   {
     Header: "DELETE",
-    accessor: "delete",
+    accessor: "id",
   },
 ];

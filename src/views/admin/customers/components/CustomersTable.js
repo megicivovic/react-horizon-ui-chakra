@@ -19,13 +19,25 @@ import {
   useTable,
 } from "react-table";
 
+import { useAuth } from "../../../../auth-context/auth.context";
 // Custom components
 import Card from "components/card/Card";
+import CustomerApi from "../../../../api/customer";
 export default function CustomersTable(props) {
-  const { columnsData, customers } = props;
+  let { columnsData, customers } = props;
+  let { user } = useAuth();
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => customers.data, [customers.data]);
+
+  const deleteCustomer = async (id) => {
+    try {
+      CustomerApi.DeleteCustomer(id, user);
+      customers = customers.filter((customer) => customer.id !== id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const tableInstance = useTable(
     { columns, data },
@@ -114,7 +126,14 @@ export default function CustomersTable(props) {
                       </Text>
                     );
                   } else if (cell.column.Header === "DELETE") {
-                    data = <Button color="red">X</Button>;
+                    data = (
+                      <Button
+                        color="red"
+                        onClick={() => deleteCustomer(cell.value)}
+                      >
+                        X
+                      </Button>
+                    );
                   }
                   return (
                     <Td

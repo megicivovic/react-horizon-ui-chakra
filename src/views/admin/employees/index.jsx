@@ -46,8 +46,6 @@ export default function Employees() {
     }
   }, []);
 
-  console.log(employees);
-
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       <Grid

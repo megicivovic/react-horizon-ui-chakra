@@ -1,5 +1,9 @@
 export const columnsDataColumns = [
   {
+    Header: "AVATAR",
+    accessor: "avatar",
+  },
+  {
     Header: "USERNAME",
     accessor: "username",
   },
@@ -9,6 +13,10 @@ export const columnsDataColumns = [
   },
   {
     Header: "COMPANY",
-    accessor: "company",
+    accessor: "customerDTO",
+  },
+  {
+    Header: "DELETE",
+    accessor: "delete",
   },
 ];

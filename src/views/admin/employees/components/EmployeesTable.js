@@ -8,8 +8,8 @@ import {
   Thead,
   Tr,
   useColorModeValue,
-  Image,
   Button,
+  Image,
 } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import {
@@ -89,7 +89,13 @@ export default function EmployeesTable(props) {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
                   let data = "";
-                  if (cell.column.Header === "USERNAME") {
+                  if (cell.column.Header === "AVATAR") {
+                    data = (
+                      <Flex align="center">
+                        <Image src={cell.value} width="100px" height="100px" />
+                      </Flex>
+                    );
+                  } else if (cell.column.Header === "USERNAME") {
                     data = (
                       <Flex align="center">
                         <Text color={textColor} fontSize="sm" fontWeight="700">
@@ -107,10 +113,16 @@ export default function EmployeesTable(props) {
                     );
                   } else if (cell.column.Header === "COMPANY") {
                     data = (
-                      <Text color={textColor} fontSize="sm" fontWeight="700">
-                        {cell.value}
-                      </Text>
+                      <Flex align="center">
+                        <Image
+                          src={cell.value.logo}
+                          width="100px"
+                          height="70px"
+                        />
+                      </Flex>
                     );
+                  } else if (cell.column.Header === "DELETE") {
+                    data = <Button color="red">X</Button>;
                   }
                   return (
                     <Td

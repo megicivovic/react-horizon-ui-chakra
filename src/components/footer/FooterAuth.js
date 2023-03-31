@@ -42,7 +42,7 @@ export default function Footer() {
             href='https://www.simmmple.com'
             target='_blank'
             fontWeight='700'>
-            Simmmple!
+            TX
           </Link>
           - Coded by 
           <Link
@@ -50,7 +50,7 @@ export default function Footer() {
             color={textColor}
             href='https://appseed.us'
             target='_blank'>
-            AppSeed
+            Team 4
           </Link>           
         </Text>
       </Text>
@@ -60,45 +60,20 @@ export default function Footer() {
             base: "20px",
             md: "44px",
           }}>
-          <Link
-            fontWeight='500'
-            color={linkColor}
-            target='_blank'
-            href='https://github.com/app-generator/react-horizon-ui-chakra'>
-            Source Code
-          </Link>
         </ListItem>
         <ListItem
           me={{
             base: "20px",
             md: "44px",
           }}>
-          <Link
-            fontWeight='500'
-            color={linkColor}
-            href='https://appseed.us/support/'>
-            Support
-          </Link>
         </ListItem>
         <ListItem
           me={{
             base: "20px",
             md: "44px",
           }}>
-          <Link
-            fontWeight='500'
-            color={linkColor}
-            href='https://simmmple.com/'>
-            Simmmple
-          </Link>
         </ListItem>
         <ListItem>
-          <Link
-            fontWeight='500'
-            color={linkColor}
-            href='https://appseed.us'>
-            AppSeed
-          </Link>
         </ListItem>
       </List>
     </Flex>

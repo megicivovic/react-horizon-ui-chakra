@@ -51,7 +51,7 @@ export default function Footer() {
             color={textColor}
             href='https://appseed.us'
             target='_blank'>
-            AppSeed
+            Team 4
           </Link> 
         </Text>
       </Text>

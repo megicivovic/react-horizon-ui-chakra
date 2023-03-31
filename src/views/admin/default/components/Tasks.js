@@ -47,7 +47,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-            Landing Page Design
+            Create customer Small PDF
           </Text>
           <Icon
             ms='auto'
@@ -64,7 +64,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-            Dashboard Builder
+            Authorize user Magdalina Civovic for access to TX
           </Text>
           <Icon
             ms='auto'
@@ -81,41 +81,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-            Mobile App Design
-          </Text>
-          <Icon
-            ms='auto'
-            as={MdDragIndicator}
-            color='secondaryGray.600'
-            w='24px'
-            h='24px'
-          />
-        </Flex>
-        <Flex mb='20px'>
-          <Checkbox me='16px' colorScheme='brandScheme' />
-          <Text
-            fontWeight='bold'
-            color={textColor}
-            fontSize='md'
-            textAlign='start'>
-            Illustrations
-          </Text>
-          <Icon
-            ms='auto'
-            as={MdDragIndicator}
-            color='secondaryGray.600'
-            w='24px'
-            h='24px'
-          />
-        </Flex>
-        <Flex mb='20px'>
-          <Checkbox defaultChecked me='16px' colorScheme='brandScheme' />
-          <Text
-            fontWeight='bold'
-            color={textColor}
-            fontSize='md'
-            textAlign='start'>
-            Promotional LP
+            Investigate parking access integration
           </Text>
           <Icon
             ms='auto'

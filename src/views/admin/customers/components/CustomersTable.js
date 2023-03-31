@@ -20,7 +20,7 @@ import {
 // Custom components
 import Card from "components/card/Card";
 import Menu from "components/menu/MainMenu";
-export default function ColumnsTable(props) {
+export default function CustomersTable(props) {
   const { columnsData, customers } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);

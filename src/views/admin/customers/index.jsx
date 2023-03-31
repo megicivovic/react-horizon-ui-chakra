@@ -22,35 +22,52 @@
 */
 
 // Chakra imports
-import { Box, SimpleGrid } from "@chakra-ui/react";
-import ColumnsTable from "views/admin/customers/components/ColumnsTable";
+import { Box, Grid } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import AuthCustomer from "../../../api/customer";
 import { useAuth } from "auth-context/auth.context";
 import { columnsDataColumns } from "views/admin/customers/variables/columnsData";
+import CustomersTable from "./components/CustomersTable";
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { user } = useAuth();
 
   useEffect(async () => {
     try {
+      setLoading(true);
       let response = await AuthCustomer.GetAll(user);
-      return setCustomers(response);
+      setCustomers(response);
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   }, []);
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-      <SimpleGrid
-        mb="20px"
-        columns={{ sm: 1, md: 2 }}
-        spacing={{ base: "20px", xl: "20px" }}
+      <Grid
+        templateColumns={{
+          base: "1fr",
+          lg: "50fr",
+        }}
+        templateRows={{
+          base: "repeat(3, 1fr)",
+          lg: "1fr",
+        }}
+        gap={{ base: "20px", xl: "20px" }}
       >
-        <ColumnsTable columnsData={columnsDataColumns} customers={customers} />
-      </SimpleGrid>
+        {!loading ? (
+          <CustomersTable
+            columnsData={columnsDataColumns}
+            customers={customers}
+          />
+        ) : (
+          "Loading"
+        )}
+      </Grid>
     </Box>
   );
 }

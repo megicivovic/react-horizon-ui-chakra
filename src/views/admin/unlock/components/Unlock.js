@@ -9,6 +9,7 @@ export default function UnlockButton(props) {
     const [text, setText] = useState("Unlock");
 
     const handleClick = () => {
+      setBackgroundColor("lightblue");
       setClicked(true);
       setText("Authorizing...");
 

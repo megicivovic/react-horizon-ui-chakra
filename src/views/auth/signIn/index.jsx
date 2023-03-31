@@ -143,7 +143,7 @@ function SignIn() {
             fontWeight="400"
             fontSize="md"
           >
-            Open-source Full-stack Starter built with React and Chakra
+            Cardfree office access to Navigator Business Centre
           </Text>
         </Box>
         <Flex

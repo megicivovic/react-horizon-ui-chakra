@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease-out;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 .circle p {
@@ -29,10 +29,18 @@
     .circle p {
         font-size: 24px;
     }
+
+    .circle {
+        margin-top: 30%;
+    }
 }
 
 @media (max-width: 400px) {
     .circle p {
         font-size: 18px;
+    }
+
+    .circle {
+        margin-top: 30%;
     }
 }

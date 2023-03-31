@@ -34,6 +34,14 @@ const routes = [
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     component: Profile,
   },
+  {
+    name: "Signin",
+    layout: "/auth",
+    path: "/sign-in",
+    icon: <Icon as={MdHome} width="16px" height="16px" color="inherit" />,
+    component: SignIn,
+    hide: true,
+  },
 ];
 
 export const Logout = [

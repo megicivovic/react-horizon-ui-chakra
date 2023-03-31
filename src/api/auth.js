@@ -3,7 +3,7 @@ import axios from "./index";
 class AuthApi {
   static Login = (data) => {
     return axios.post(`${base}/signin`, {
-      username: data.email,
+      username: data.username,
       password: data.password,
     });
   };

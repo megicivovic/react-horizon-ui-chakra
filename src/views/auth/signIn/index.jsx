@@ -80,31 +80,31 @@ function SignIn() {
     if (event) {
       event.preventDefault();
     }
-    if (user && user.token) {
-      return history.push("/admin/dashboards");
-    }
+
     if (username === "") {
       return setError("You must enter your username.");
     }
+
     if (password === "") {
       return setError("You must enter your password");
     }
+
     setButtonText("Signing in");
     try {
       let response = await AuthApi.Login({
         username,
         password,
       });
+
       if (response.data && response.data.success === false) {
         setButtonText("Sign in");
         return setError(response.data.msg);
       }
       return setProfile(response);
     } catch (err) {
-      console.log(err);
       setButtonText("Sign in");
       if (err.message) {
-        return setError(err.message);
+        return setError("Invalid username or password.");
       }
       return setError("There has been an error.");
     }
@@ -134,7 +134,7 @@ function SignIn() {
       >
         <Box me="auto">
           <Heading color={textColor} fontSize="36px" mb="10px">
-            Sign IN
+            Sign In
           </Heading>
           <Text
             mb="36px"

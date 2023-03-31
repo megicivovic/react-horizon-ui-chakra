@@ -8,6 +8,7 @@ import React from "react";
 // FUNCTIONS
 
 function SidebarContent(props) {
+  const userRole = localStorage.getItem('userRole');
   const { routes } = props;
   // SIDEBAR
   return (
@@ -15,7 +16,7 @@ function SidebarContent(props) {
       <Brand />
       <Stack direction="column" mb="auto" mt="8px">
         <Box ps="20px" pe={{ md: "16px", "2xl": "1px" }}>
-          <Links routes={routes} />
+          <Links routes={routes} userRole={userRole} />
         </Box>
       </Stack>
 

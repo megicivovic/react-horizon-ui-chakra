@@ -110,11 +110,13 @@ function SignIn() {
     }
   };
   const setProfile = async (response) => {
+    console.log({ response: response.data });
     let user = { ...response.data.user };
     user.token = response.data.accessToken;
     user = JSON.stringify(user);
     setUser(user);
     localStorage.setItem("user", user);
+    localStorage.setItem("userRole", response?.data?.role);
     return history.push("/dashboards");
   };
   return (

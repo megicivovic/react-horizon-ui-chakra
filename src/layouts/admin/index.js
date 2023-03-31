@@ -15,7 +15,15 @@ export default function Dashboard(props) {
   // states and functions
   const [fixed] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
+  const userRole = localStorage.getItem('userRole');
   // functions for changing the states from components
+  const redirectTo = () => {
+    if (userRole === 'ROLE_EMPLOYEE') {
+      return '/admin/unlock';
+    }
+
+    return '/admin/default';
+  };
   const getRoute = () => {
     return window.location.pathname !== "/admin/full-screen-maps";
   };
@@ -155,7 +163,7 @@ export default function Dashboard(props) {
               pt='50px'>
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from='/' to='/admin/default' />
+                <Redirect from='/' to={redirectTo()} />
               </Switch>
             </Box>
           ) : null}

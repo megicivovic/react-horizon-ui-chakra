@@ -13,8 +13,8 @@ export function SidebarLinks(props) {
   const history = useHistory();
   const { setUser } = useAuth();
   let { user } = useAuth();
-    const handleLogout = async () => {
-      // console.log("Sgmfi");
+  const handleLogout = async () => {
+    // console.log("Sgmfi");
     await AuthApi.Logout(user);
     await setUser(null);
     localStorage.removeItem("user");
@@ -31,7 +31,7 @@ export function SidebarLinks(props) {
   let textColor = useColorModeValue("secondaryGray.500", "white");
   let brandColor = useColorModeValue("brand.500", "brand.400");
 
-  const { routes } = props;
+  const { routes, userRole } = props;
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
@@ -41,6 +41,10 @@ export function SidebarLinks(props) {
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks = (routes) => {
     return routes.map((route, index) => {
+      if (route.name !== 'Unlock' && userRole === 'ROLE_EMPLOYEE') {
+        return null;
+      }
+
       if (route.category) {
         return (
           <>
@@ -146,59 +150,59 @@ export function SidebarLinks(props) {
     return routes.map((route, key) => {
       return (
         <NavLink to={route.layout + route.path} key={key} onClick={handleLogout}>
-              {route.icon ? (
-                <Flex
-                  align='center'
-                  justifyContent='space-between'
-                  w='100%'
-                  ps='17px'
-                  mb='0px'>
-                  <HStack
-                    mb='6px'
-                    spacing={
-                      activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                    }>
-                    <Flex w='100%' alignItems='center' justifyContent='center'>
-                      <Box
-                        color={
-                          activeRoute(route.path.toLowerCase())
-                            ? activeIcon
-                            : inactiveColor
-                        }
-                        me='12px'
-                        mt='6px'>
-                        {route.icon}
-                      </Box>
-                      <Text
-                        me='auto'
-                        color={
-                          activeRoute(route.path.toLowerCase())
-                            ? activeColor
-                            : "secondaryGray.600"
-                        }
-                        fontWeight='500'>
-                        {route.name}
-                      </Text>
-                    </Flex>
-                  </HStack>
+          {route.icon ? (
+            <Flex
+              align='center'
+              justifyContent='space-between'
+              w='100%'
+              ps='17px'
+              mb='0px'>
+              <HStack
+                mb='6px'
+                spacing={
+                  activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                }>
+                <Flex w='100%' alignItems='center' justifyContent='center'>
+                  <Box
+                    color={
+                      activeRoute(route.path.toLowerCase())
+                        ? activeIcon
+                        : inactiveColor
+                    }
+                    me='12px'
+                    mt='6px'>
+                    {route.icon}
+                  </Box>
+                  <Text
+                    me='auto'
+                    color={
+                      activeRoute(route.path.toLowerCase())
+                        ? activeColor
+                        : "secondaryGray.600"
+                    }
+                    fontWeight='500'>
+                    {route.name}
+                  </Text>
                 </Flex>
-              ) : (
-                <ListItem ms={null}>
-                  <Flex ps='34px' alignItems='center' mb='8px'>
-                    <Text
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? activeColor
-                          : inactiveColor
-                      }
-                      fontWeight='500'
-                      fontSize='sm'>
-                      {route.name}
-                    </Text>
-                  </Flex>
-                </ListItem>
-              )}
-            </NavLink>
+              </HStack>
+            </Flex>
+          ) : (
+            <ListItem ms={null}>
+              <Flex ps='34px' alignItems='center' mb='8px'>
+                <Text
+                  color={
+                    activeRoute(route.path.toLowerCase())
+                      ? activeColor
+                      : inactiveColor
+                  }
+                  fontWeight='500'
+                  fontSize='sm'>
+                  {route.name}
+                </Text>
+              </Flex>
+            </ListItem>
+          )}
+        </NavLink>
       );
     });
   };

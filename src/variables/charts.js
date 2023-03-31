@@ -191,12 +191,12 @@ export const barChartOptionsConsumption = {
   },
   fill: {
     type: "solid",
-    colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+    colors: ["#5E37FF", "#FF0000", "#E1E9F8"],
   },
   legend: {
     show: false,
   },
-  colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+  colors: ["#5E37FF", "#FF0000", "#E1E9F8"],
   dataLabels: {
     enabled: false,
   },
@@ -210,7 +210,7 @@ export const barChartOptionsConsumption = {
 
 export const pieChartOptions = {
   labels: ["Your files", "System", "Empty"],
-  colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  colors: ["#4318FF", "#FF0000", "#EFF4FB"],
   chart: {
     width: "50px",
   },
@@ -239,7 +239,7 @@ export const pieChartOptions = {
     },
   },
   fill: {
-    colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+    colors: ["#4318FF", "#FF0000", "#EFF4FB"],
   },
   tooltip: {
     enabled: true,

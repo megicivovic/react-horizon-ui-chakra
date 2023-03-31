@@ -254,11 +254,11 @@ export default function HeaderLinks(props) {
           <Avatar
             _hover={{ cursor: "pointer" }}
             color="white"
-            name="Milan Miloradovic"
             bg="#11047A"
             size="sm"
             w="40px"
             h="40px"
+            src={localStorage.getItem("userAvatar")}
           />
         </MenuButton>
         <MenuList

@@ -8,6 +8,7 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import {
@@ -29,22 +30,16 @@ export default function CustomersTable(props) {
   console.log(columns);
   console.log(data);
 
-  // const tableInstance = useTable(
-  //   { columns, data },
-  //   useGlobalFilter,
-  //   useSortBy,
-  //   usePagination
-  // );
+  const tableInstance = useTable(
+    { columns, data },
+    useGlobalFilter,
+    useSortBy,
+    usePagination
+  );
 
-  // const {
-  //   getTableProps,
-  //   getTableBodyProps,
-  //   headerGroups,
-  //   page,
-  //   prepareRow,
-  //   initialState,
-  // } = tableInstance;
-  // initialState.pageSize = 5;
+  const { getTableBodyProps, headerGroups, page, prepareRow, initialState } =
+    tableInstance;
+  initialState.pageSize = 5;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -66,7 +61,7 @@ export default function CustomersTable(props) {
         </Text>
         <Menu />
       </Flex>
-      {/* <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
+      <Table>
         <Thead>
           {headerGroups.map((headerGroup, index) => (
             <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
@@ -105,26 +100,17 @@ export default function CustomersTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "PROGRESS") {
+                  } else if (cell.column.Header === "LOGO") {
                     data = (
                       <Flex align="center">
-                        <Text
-                          me="10px"
-                          color={textColor}
-                          fontSize="sm"
-                          fontWeight="700"
-                        >
-                          {cell.value}%
-                        </Text>
+                        <Image
+                          src={`${cell.value}`}
+                          width="100px"
+                          height="70px"
+                        />
                       </Flex>
                     );
-                  } else if (cell.column.Header === "QUANTITY") {
-                    data = (
-                      <Text color={textColor} fontSize="sm" fontWeight="700">
-                        {cell.value}
-                      </Text>
-                    );
-                  } else if (cell.column.Header === "DATE") {
+                  } else if (cell.column.Header === "EMAIL") {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -147,7 +133,7 @@ export default function CustomersTable(props) {
             );
           })}
         </Tbody>
-      </Table> */}
+      </Table>
     </Card>
   );
 }

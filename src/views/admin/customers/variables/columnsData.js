@@ -11,4 +11,8 @@ export const columnsDataColumns = [
     Header: "EMAIL",
     accessor: "email",
   },
+  {
+    Header: "DELETE",
+    accessor: "delete",
+  },
 ];

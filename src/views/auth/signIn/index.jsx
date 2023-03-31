@@ -117,6 +117,7 @@ function SignIn() {
     setUser(user);
     localStorage.setItem("user", user);
     localStorage.setItem("userRole", response?.data?.role);
+    localStorage.setItem("userAvatar", response?.data?.avatar);
     return history.push("/dashboards");
   };
   return (
